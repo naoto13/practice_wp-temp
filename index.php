@@ -3,14 +3,15 @@
 <!-- get_header();でheaderと名前がつくファイルを自動で読み込む -->
 <?php get_header(); ?>
 
-        <!-- メニュー -->
-        <?php get_template_part(' content ',' menu ');?>
-		
+		<!-- メニュー -->
+        <?php get_template_part('content','menu');?>
+
 		<!-- メインコンテンツ -->
 		<div id="main">
 
-			<!-- トップバナー -->
-			<img src="img/top-baner.png" id="top-baner">
+            <!-- トップバナー -->
+			<!-- <img src="img/top-baner.png" id="top-baner"> -->
+			<img src="wp-content/themes/sample/img/top-baner.png" id="top-baner">
 
 			<!-- ABOUT -->
 			<section id="about" class="site-width">

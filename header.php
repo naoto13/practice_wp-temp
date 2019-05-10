@@ -7,7 +7,7 @@
 		<!-- タイトルも管理画面からひっぱてくる -->
 		<title><?php wp_title(); ?></title>
 		<!-- stylesheetは自動的に使用されているものを読み込むように -->
-		<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>">
+		<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>"/>
 		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<!-- WP管理画面から設定した内容が反映されるためのもの -->
 		<?php wp_head(); ?>
