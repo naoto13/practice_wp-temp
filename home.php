@@ -29,7 +29,7 @@ Template Name: Home ~トップページ~
 					<?php echo get_post_meta($post->ID, 'about' ,true)?>
 				</p>
 			</section>
-
+			<!-- 以下もテンプレから -->
 			<!-- MERIT -->
 			<section id="merit" class="site-width">
 				<h1 class="title">MERIT</h1>
