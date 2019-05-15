@@ -1,5 +1,5 @@
 
-<!-- メニュー -->
+<!-- コンテンツメニュー -->
 <header class="site-width">
 	<h1>
 		<!-- サイトのurlはhome_urlで -->

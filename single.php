@@ -5,7 +5,6 @@
 		<?php get_template_part(' content ',' menu ');?>
 		
 		<div id="main">
-
 			<!-- blog_list -->
 			<section id="blog" class="site-width">
 				<h1 class="title">BLOG</h1>
@@ -38,10 +37,9 @@
 				<!-- 記事の投稿がない場合 -->
 				<?php else : ?>
 						<h2 class="title">記事が見つかりませんでした。</h2>
-						<p>検索で見つかるかもしれません</p>
+						<p>もしかすると検索で見つかるかもしれません。検索バーで試してみてください</p>
 						<?php get_search_form();?>
 				<?php endif; ?>
-
 				</div>
 
 				<!-- サイドバー -->
