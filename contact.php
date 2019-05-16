@@ -9,7 +9,6 @@ Template Name: Contact ~お問い合わせ~
 
         <!-- メニュー -->
 		<?php get_template_part(' content ',' menu ');?>
-		
 		<div id="main">
 			<!-- Contact -->
 			<section id="contact" class="site-width">

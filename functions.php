@@ -100,4 +100,84 @@ function save_custom_postdata($post_id){
 	}
 }
 
-?>
+// =====================
+// カスタムヴィジェット
+// =====================
+// ヴィジェットエリアを作成する関数がどれなのかを登録する
+// add_action('widgets_init',任意の関数名);
+add_action('widgets_init','my_widgets_area');
+//ヴィジェット自体の作成する関数がどれなのかを登録する
+// add_action('widget_init',create_function('','return 任意の関数名("クラス名");'));
+add_action('widget_init',create_function('','return register_widget("my_widgets_item1");'));
+
+function my_widgets_area(){
+
+	register_sidebar(array(
+		// 管理画面で表示したい名前、id属性名、なんのタグで囲むのか
+		'name' =>  'メリットエリア',
+		'id' => 'widget_merit',
+		'before_widget' => '<div>',
+		'after_widget' => '</div>',
+	));
+}
+
+class my_widgets_item1 extends WP_Widget{
+
+	//初期化（管理画面で表示するヴィジェットの名前を設定する）
+	// 初期化用のメソッドは、クラス名と同じ方が良い(my_widgets_item1)
+	function my_widgets_item1() {
+		// 管理画面に表示される名前をメリットヴィジェットへ
+		parent::WP_Widget(false, $name = 'メリットヴィジェット');
+	}
+
+	//ヴィジェットの入力項目を作成する処理
+	// formを使用することで自動的にWPで出力された値を呼び出せるので、引数（$instance）のなかに格納している
+	function form($instance) {
+		$title = esc_attr($instance['title']);
+		$body = esc_attr($instance['body']);
+	?>
+		<p>
+			<label for="<?php echo $this->get_field_id('title'); ?>">
+				<?php echo 'タイトル:'; ?>
+			</label>
+			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title');?>" type="text" value="<?php echo $title; ?>" />
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('body'); ?>">
+				<?php echo '内容：' ;?>
+			</label>
+			<textarea class="widefat" rows="16" colls="20" id="<?php echo $this->get_field_id('body');?>" name="<?php echo $this->get_field_name('body'); ?>"><?php echo $body;?></textarea>
+		</p>
+	<?php
+	}
+
+		//ヴィジェットに入力された情報を保存する処理
+		function update($new_instance, $old_instance) {
+			$instance = $old_instance;
+			$instance['title'] = strio_tags($new_instance['title']);//サニタイズ
+			$instance['body'] = trim($new_instance['body']);//サニタイズ
+
+			return $instance;
+		}
+
+		//管理画面から入力されたヴィジェットを画面に表示する処理
+		function widget($args, $instance){
+			//配列を変数に展開
+			ectract($args);
+
+			//ヴィジェットから入力された情報を取得
+			$title = apply_filters('widget_title', $instance['title'] );
+			$body = apply_filters('widget_body', $instance['bosy']);
+
+			//ヴィジェットから入力された情報がある場合、htmlを表示する
+			if($title){
+	?>
+				<section class="panel">
+					<h2><?php echo $title; ?></h2>
+					<p>
+						<?php echo $body;?>
+					</p>
+				</section>
+			}
+		}
+}
