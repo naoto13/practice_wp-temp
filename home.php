@@ -33,7 +33,9 @@ Template Name: Home ~トップページ~
 			<!-- MERIT -->
 			<section id="merit" class="site-width">
 				<h1 class="title">MERIT</h1>
-				<section class="panel">
+				<!-- register_sidebarのnameと同じ名前をつける -->
+				<?php dynamic_sidebar('メリットエリア'); ?>
+				<!-- <section class="panel">
 					<h2>高給が期待できる！</h2>
 					<p>
 						T業界では、時給3000円、4000円は当たり前の世界です。<br /> 使うプログラミング言語や任されるポジションによっても変わりますが、
@@ -54,7 +56,7 @@ Template Name: Home ~トップページ~
 						起業に必要なのは総合力です。起業したての頃は一人で全てをこなすことになります。 プログラミング、デザイン、マーケティング、営業スキル。
 						オールマイティーに全てが出来なければいけません。 ウェブカツ!!では、実際のIT起業家から集客方法・マーケティング、営業メソッドまで全て学ぶことが出来ます。
 					</p>
-				</section>
+				</section> -->
 			</section>
 
 			<!-- RECRUIT -->
